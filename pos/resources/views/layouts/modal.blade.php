@@ -13,7 +13,8 @@
                    }
                     ?>
                      
-                     {{$textitle??'Add New '.$tablename;}}
+                     {{$textitle??'Add New '.$tablename}}
+
                      
             </h1>
             <button type="button" class="btn-close" data-bs-dismiss="modal"
