@@ -1,0 +1,28 @@
+#time{
+    color: rgb(10, 170, 233);
+    margin-top: 5px;
+    text-align: center;
+}
+ table tbody tr td {
+    padding: 10px !important;
+    font-size: 16px;
+ }
+ .fa-trash-can{
+cursor: pointer;
+ }
+ .respone2{
+    padding: 10px;
+    border: none;
+    font-size: 15px;
+    color: gray;
+ }
+ 
+ .select2-selection__arrow b{
+    display:none !important;
+}
+.respon3{
+    margin: 10px !important;
+}
+#toast-container{
+    padding: 10px !important;
+}

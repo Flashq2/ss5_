@@ -1,0 +1,65 @@
+h6{
+    font-size: 20px;
+}
+button {
+   
+    border: none !important;
+    border-radius: 10em !important;
+    background: #016DD9;
+    font-size: 17px;
+    color: #ffffff;
+    font-family: inherit;
+    font-weight: 500;
+    padding: 5px 20px;
+   }
+button.action {
+    border: none;
+    border-radius: 10em;
+    background: #016DD9;
+    font-size: 17px;
+    color: #ffffff;
+    font-family: inherit;
+    font-weight: 500;
+    padding: 5px 20px;
+   }
+  
+   button.actiondelete {
+    background:#ff0018;
+    padding: 5px 20px;
+   }
+ 
+ 
+   div#user_filter,div#permission_filter {
+    width: 50% !important;
+    /* background: darkred; */
+    float: left !important;
+    margin-top: 20px !important;
+}
+div#user_length ,div#permision_length {
+    width: 50% !important;
+    float: right !important;
+    margin-top: 20px !important;
+}
+div#user_length label,div#permission_length label {
+  float: right;
+}
+div#user_length label select,div#permission_length label select {
+     width: 100%;
+  }
+div#user_filter label,div#permission_filter label {
+float: left;
+}
+.title{
+        /* background-color: aqua; */
+        width: 100%;
+        padding: 5px;
+        text-align: center;
+        font-size: 14px;
+        /* font-weight: 900; */
+    }
+input {
+    margin: 1in;
+    margin-bottom: 10px !important;
+    padding: 5px !important;
+}
+
