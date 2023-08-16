@@ -6,16 +6,12 @@
                 <?php
                    if(isset($code)) 
                    {
-                      
                      $textitle='Edit ';
                      $class_btn_save='btn_edit';
                      $title_btn_save='Save Edit';
                    }
                     ?>
-                     
                      {{$textitle??'Add New '.$tablename}}
-
-                     
             </h1>
             <button type="button" class="btn-close" data-bs-dismiss="modal"
                 aria-label="Close"></button>
@@ -42,11 +38,9 @@
                     >
                 </div> 
                     </div>
-                   
                 </div>
                 @endif
                      @endforeach
-                    
                 </div>
             </form>
         </div>
