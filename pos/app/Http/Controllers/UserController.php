@@ -13,6 +13,7 @@ class UserController extends Controller
 {
     public function index()
     {
+
         return view('user.user');
     }
     public function store(Request $request)
@@ -37,23 +38,24 @@ class UserController extends Controller
     }
     public function save()
     {
-        $field =  DB::getSchemaBuilder()->getColumnListing('users');
-        return view('user.user_card',compact('field'));
+        $data =  DB::getSchemaBuilder()->getColumnListing('users');
+        return view('user.user_card',compact('data'));
     }
     public function adduser(Request $request)
     {
+ 
+        $get =$request->all();
+        // dd($get);
         $data=new UserModel();
-        $data->name=$request->name;
-        $data->email=$request->email ;
-        $data->password=bcrypt($request->password) ;
-        $data->status=$request->status ;
-        $data->salesperson_code=$request->salecode ;
-        $data->gender=$request->gender ;
-        $data->date_of_birth=$request->dob ;
-        $data->phone_no=$request->phone ;
-        $data->address=$request->address ;
-        $data->permission_code=$request->permission;
-        $data->user_role_code=$request->userrole;
+        foreach($get as $key=>$d){
+            if($key != "_token"){
+                if($key == "password"){
+                    $data['password']=bcrypt($d);
+                }else{
+                    $data->$key=$d;
+                }
+            }
+        }
         toastr()->success('New user has been to your system');
         $data->save();
         return redirect()->back();
