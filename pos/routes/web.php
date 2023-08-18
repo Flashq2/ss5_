@@ -46,10 +46,6 @@ Route::group(['prefix' => 'user'], function () {
 });
 
 
-
-
-});
-
 Route::group(['prefix' => 'customer'], function () {
     Route::resource('/customer',UserController::class);
     
@@ -181,4 +177,5 @@ Route::group(['prefix'=>'system'],function(){
     Route::get('search/{group}',[SystemController::class,'getItem']);
     // Route::get('search/uom',[SystemController::class,'getUom']);
 });
- 
+
+});
