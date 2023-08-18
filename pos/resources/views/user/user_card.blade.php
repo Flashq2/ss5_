@@ -15,10 +15,10 @@
                     <i class="hamburger align-self-center"></i>
                 </a>
             </nav>
-           
+
 
             <main class="content">
-             
+
                 <div class="row">
                     <h1>User</h1>
                     <hr>
@@ -31,20 +31,18 @@
                                         <a href="{{ url('user/newrecord') }}"> <button class="action"> Action
                                             </button></a>
                                     </div>
-                                    
-                                    
-                                      
-                                
-                                @if (isset($_GET['code']))
-                                    <?php
-                                      $url='user/updateuser';
-                                      $header=App\Models\UserModel::select('*')->where('id', $_GET['code'])->first();
-                                       ?>
-                                @else
-                                <?php
-                                $url='user/adduser';
-                                ?>
-                                @endif
+                                    @if (isset($_GET['code']))
+                                        <?php
+                                        $url = 'user/updateuser';
+                                        $header = App\Models\UserModel::select('*')
+                                            ->where('id', $_GET['code'])
+                                            ->first();
+                                        ?>
+                                    @else
+                                        <?php
+                                        $url = 'user/adduser';
+                                        ?>  
+                                    @endif
                                 </div>
                             </div>
                             <div class="col-6">
@@ -54,36 +52,37 @@
                 </div>
                 <hr>
                 <div class="row">
-                    @foreach ($field as $item_field)
-                        @if (
-                            $item_field != 'updated_at' &&
-                                $item_field != 'created_at' &&
-                                $item_field != 'deleted_at' &&
-                                $item_field != 'picture')
+                    <form action="{{url($url)}}" enctype="multipart/form-data" method="POST">
+                        @csrf
+                        <div class="row">
+                        @foreach ($data as $datas)
+                            @if($datas !='created_at' && $datas !='deleted_at' && $datas !='updated_at')
                             <div class="col-lg-6">
-                                <label for="" style="padding:5px;" class="titles">{{ str_replace('_', ' ', $item_field) }}
-                                    @if ($item_field == 'no')
-                                        <span style="color: red">*</span>
-                                    @endif
-                                </label>
-                                @if ($item_field == 'no' && isset($value))
-                                    <input type="text" class="form-control" id="{{ $item_field }}" name="{{ $item_field }}"
-                                        value="{{ $value->$item_field ?? '' }}" readonly>
-                                @elseif($item_field == 'item_no' || $item_field == 'unit_of_measure_code')
-                                    <?php
-                                    $item = App\Models\Itemmodel::where('inactived', '<>', 'Yes')->get();
-                                    ?>
-                                    <select name="{{$item_field}}" id="{{$item_field}}" class="form-control" style="padding: 10px !important;">
-                                            
-                                    </select>
-                                @else
-                                    <input type="text" class="form-control" id="{{ $item_field }}" name="{{ $item_field }}"
-                                        value="{{ $value->$item_field ?? '' }} ">
-                                @endif
-            
+                                <div class="row">
+                                    <div class="col-lg-2">
+                                 <div class="title" style="float:left;">
+                                    {{$datas}}
+                                 </div>
                             </div>
-                        @endif
-                    @endforeach
+                            <div class="col-lg-8">
+                                    
+                                <input type="text" class="form-control" name="{{$datas}}" id="{{$datas}}" value="{{$header->$datas??'';}}"> 
+                            </div> 
+                                </div>
+                            </div>
+                            @endif 
+                        @endforeach
+                         </div>
+                        <div class="row">
+                            <div class="col-1">
+                                
+                            </div>
+                            <div class="col-2">
+                                <button type="submit">Save</button>
+                                <button type="submit">Back</button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
 
             </main>
@@ -93,14 +92,15 @@
 </body>
 @include('script')
 <script>
-    $(document).ready(function () {
-        
+    $(document).ready(function() {
+
         $('#userrole').select2();
         $('#permission').select2();
         $('#inactived').select2();
-        $('document').on('submit',function(e){
+        $('document').on('submit', function(e) {
             e.preventDefault();
         })
     });
 </script>
+
 </html>
