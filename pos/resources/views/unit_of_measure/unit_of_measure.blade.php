@@ -227,11 +227,10 @@ $(document).on('click','.edit',function(){
                     $('.sty_loader').fadeOut(2000);
                     setTimeout(() => {
                            $('#staticBackdrop').html(data);
-                     $('#staticBackdrop').modal('show')
+                           $('#staticBackdrop').modal('show')
+                           reniUli()
                     }, 1000);
-                  
-                     
-                    
+                   
                 }
             })
 

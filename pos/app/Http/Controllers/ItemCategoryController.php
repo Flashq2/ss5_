@@ -10,8 +10,10 @@ use Yajra\DataTables\Facades\DataTables;
 class ItemCategoryController extends Controller
 {
     public function index(){
+        $title = 'Item Category';
+        $table_name = 'Item_category';
         $field=  DB::getSchemaBuilder()->getColumnListing('item_categorys');
-        return view('item_category.item_category',compact('field'));
+        return view('item_category.item_category',compact('field','title','table_name'));
     }
     public function show(Request $request){
         if($request->ajax()){

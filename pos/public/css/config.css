@@ -26,3 +26,9 @@ cursor: pointer;
 #toast-container{
     padding: 10px !important;
 }
+.order{
+    cursor: pointer;
+}
+.pos-sidebar{
+    transition: 0.4s;
+}

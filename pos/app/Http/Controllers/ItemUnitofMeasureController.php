@@ -11,9 +11,11 @@ use Illuminate\Support\Facades\Validator;
 class ItemUnitofMeasureController extends Controller
 {
     public function index()
-    {
+    {   $title = 'Item Unit of Measure';
+        $table_name = 'item_unit_of_measures';
+        $is_form = '1';
         $field=  DB::getSchemaBuilder()->getColumnListing('item_unit_of_measures');
-        return view('itemUnitOfMeasure.itemUnitOfMeasure',compact('field'));
+        return view('itemUnitOfMeasure.itemUnitOfMeasure',compact('field','title','table_name','is_form'));
     }
 
     public function store(Request $request)

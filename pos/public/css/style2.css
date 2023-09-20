@@ -11,6 +11,7 @@ button {
     font-family: inherit;
     font-weight: 500;
     padding: 5px 20px;
+    white-space: nowrap !important;
    }
 button.action {
     border: none;
@@ -62,4 +63,11 @@ input {
     margin-bottom: 10px !important;
     padding: 5px !important;
 }
+/* .select2-container {
+    z-index: 99999 !important;
+}
+
+.select2-dropdown{
+    z-index: 9999999;
+} */
 

@@ -11,9 +11,7 @@
              </div>
         </div>
         <div class="col-lg-8">
-                
-        <input type="text" class="form-control" name="{{$datas}}" id="{{$datas}}" value="{{$header->$datas??''}}">
-
+            <input type="text" class="form-control" name="{{$datas}}" id="{{$datas}}" value="{{$header->$datas??'';}}"> 
         </div> 
             </div>
            

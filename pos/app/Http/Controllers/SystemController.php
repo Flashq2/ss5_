@@ -10,6 +10,7 @@ use App\Models\ItemUnitofMeasureModel;
 use App\Models\PermissionModel;
 use App\Models\UnitofMeasureModel;
 use App\Models\UserroleModel;
+use App\Models\Warehouse;
 
 class SystemController extends Controller
 {
@@ -36,13 +37,38 @@ class SystemController extends Controller
             case 'user_role_code' :
                     $items = UserroleModel::select('code as no','description')->Where('code', 'like', '%' . $condition . '%')->get();
                 break;
+            case 'warehouse_code' :
+                $items = Warehouse::select('code as no','description')->Where('code', 'like', '%' . $condition . '%')->get();
+                //  print_r($items);
+            break;
+            case 'inactived' :
+                $items = collect([(object) [
+                                'no' => 'Yes',
+                                'description' => 'Yes'
+                            ],
+                            (object) [
+                                'no' => 'No',
+                                'description' => 'No'
+                            ]]);
+                 
+            break;
+            case 'adjustment_type' :
+                $items = collect([(object) [
+                                'no' => 'negative',
+                                'description' => 'Negative'
+                            ],
+                            (object) [
+                                'no' => 'positive',
+                                'description' => 'Positive'
+                            ]]);
+            break;
             default:
                 
                 break;
         }
        
-        return response()->json($items);
-    }
+        return  response()->json($items);
+    }   
     public function getUom(Request $request){
         $data = $request->all();
         $condition = $data['q'];
@@ -50,13 +76,7 @@ class SystemController extends Controller
         ->get();
         return response()->json($items);
     }
-    // public function getItemGrop(Request $request){
-    //     $data = $request->all();
-    //     $condition = $data['q'];
-    //     $items = UnitofMeasureModel::select('code as no','description')->Where('code', 'like', '%' . $condition . '%')
-    //     ->get();
-    //     return response()->json($items);
-    // }
+   
 
 }
 

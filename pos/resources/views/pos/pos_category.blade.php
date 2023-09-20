@@ -8,8 +8,8 @@
     </li>
     @foreach ($category as $categories)
     <li class="nav-item">
-        <a class="nav-link" href="#" data-filter="meat">
-            <div class="nav-icon"><i class="fa-solid fa-pizza-slice"></i></div>
+        <a class="nav-link" href="#" data-filter="{{$categories->code}}">
+            <div class="nav-icon">{!! ($categories->icon) !!}</div>
             <div class="nav-text">{{$categories->code}}</div>
         </a>
     </li>

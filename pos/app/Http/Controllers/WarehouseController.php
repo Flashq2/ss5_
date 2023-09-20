@@ -10,8 +10,10 @@ use Yajra\DataTables\Facades\DataTables;
 class WarehouseController extends Controller
 {
     public function index(){
+        $title = "Warehouse";
+        $table_name = 'warehouse';
         $field=  DB::getSchemaBuilder()->getColumnListing('warehouse');
-        return view('warehouse.warehouse',compact('field'));
+        return view('warehouse.warehouse',compact('field','title','table_name'));
     }
     public function show(Request $request){
         if($request->ajax()){

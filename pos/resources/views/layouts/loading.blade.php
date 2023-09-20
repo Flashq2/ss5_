@@ -51,7 +51,7 @@
 <div class="sty_loader">
     <div class="loader">
         <div class="control_imga">
-            <img src="{{asset('/img/loading-wtf.gif')}}" alt="">
+            <img src="{{asset('/img/loading.gif')}}" alt="">
         </div>
         loading...
     </div>

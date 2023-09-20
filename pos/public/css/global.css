@@ -119,3 +119,7 @@
   .select2-container .select2-dropdown .select2-results ul .select2-results__option--highlighted[aria-selected] {
     background-color: #3498db;
   }
+  .print_barcode{
+    position: relative !important;
+    z-index: -56789 !important;
+  }

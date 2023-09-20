@@ -12,4 +12,8 @@ class ItemUnitofMeasureModel extends Model
     protected $primaryKey="id";
     public $incrementing = false;
     
+    protected static function KeyName() {
+        return (new static)->getKeyName();
+    }
+    
 }

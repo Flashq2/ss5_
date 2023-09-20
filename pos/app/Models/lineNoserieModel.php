@@ -9,6 +9,6 @@ class lineNoserieModel extends Model
 {
     use HasFactory;
     protected $table = "lineseries";
-    protected $primaryKey="code";
+    protected $primaryKey="id";
     public $incrementing = false;   
 }

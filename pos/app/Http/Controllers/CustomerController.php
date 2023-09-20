@@ -4,24 +4,25 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\CustomerModel;
+use App\Models\TableModel;
 use Exception;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use PDO;
 use Throwable;
 use Yajra\DataTables\Facades\DataTables;
 
 class CustomerController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-
+        $title = 'Customer Setup';
+        $table_name = 'customer';
+        $is_card = '1';
+        $link = 'customer/addnewcustomer';
         $field =  DB::getSchemaBuilder()->getColumnListing('customers');
-        return view('customer.customer', compact('field'));
+        return view('customer.customer', compact('field','title','table_name','is_card','link'));
     }
-
-
     public function create(Request $request)
     {
         try {
@@ -96,30 +97,9 @@ class CustomerController extends Controller
             'data' => $field,
         ]);
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Request $request, $id)
     {
-        $data = CustomerModel::where('no', $id);
-        $data->delete();
+        $data = CustomerModel::where('no', $id)->delete();
         return response()->json([
             'status' => "Success"
         ]);

@@ -12489,3 +12489,48 @@ a.ui-button:active {
         overflow: auto !important;
     }
 }
+.select2-container {
+    z-index: 99999;
+}
+.mt-2{
+    font-size: 15px ;
+}
+.paginate{
+    position: fixed;
+    bottom: 0;
+    right: 800px !important;
+}
+/* .tooket{
+    width: 500px;
+    height: 300px;
+    border:1px solid black;
+    position: absolute;
+    z-index: 10000;
+} */
+table td {
+    position:relative;
+}
+.tooltip {
+    width:400px;
+    height:300px;
+    padding:20px;
+    border:1px solid #ccc;
+    box-shadow: 0 0 3px rgba(0,0,0,.3);
+    -webkit-box-shadow: 0 0 3px rgba(0,0,0,.3);
+    border-radius:3px;
+    -webkit-border-radius:3px;
+    position:absolute;
+    top:5px;
+    left:50px;
+    display:none;
+    
+}
+.link:hover+.tooltip {
+    display: block;
+  }
+.tooltip {
+    z-index: 100;
+  }
+  .tooltip:hover {
+    display: block;
+  }

@@ -11,7 +11,10 @@ class UserroleController extends Controller
 {
     public function index()
     {
-        return view('role.user_role');
+        $title = 'User Role';
+        $table_name = 'user_role';
+        $field=  DB::getSchemaBuilder()->getColumnListing('user_roles');
+        return view('role.user_role',compact('field','title','table_name'));
     }
     public function save(Request $request)
     {

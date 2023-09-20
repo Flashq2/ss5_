@@ -8,12 +8,7 @@
                             <i class="fa fa-tags"></i> All</a>
                     </li>
                    
-                    @foreach ($category as $categories)
-                    <li class="nav-item">
-                       <a class="nav-link" data-toggle="pill" href="#nav-tab-card">
-                           <i class="fa fa-tags"></i>{{$categories->code}}</a>
-                   </li>
-                    @endforeach
+                    
                 </ul>
                 <span id="items">
                     <div class="row">

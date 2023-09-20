@@ -14,8 +14,12 @@ class ItemsController extends Controller
 
     public function index()
     {
+        $title = 'Item Setup';
+        $table_name = 'item';
+        $is_form = '1';
+        $show_image = '1';
         $field=  DB::getSchemaBuilder()->getColumnListing('items');
-        return view('items.item',compact('field'));
+        return view('items.item',compact('field','title','table_name','is_form','show_image'));
     }
 
     public function store(Request $request)
